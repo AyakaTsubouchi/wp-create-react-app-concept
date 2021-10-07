@@ -12,6 +12,7 @@ class App extends React.Component {
 
         this.state = {
             pages: [],
+            menu:[]
         };
     }
 
@@ -25,9 +26,20 @@ class App extends React.Component {
         });
         console.log(data);
     };
+    getMenu = async () => {
+        let res = axios.get("http://localhost:8888/wp-json/wp/v2/menu");
+
+        let { data } = await res;
+
+        this.setState({
+            menu: data,
+        });
+        console.log(data);
+    };
 
     componentDidMount = async () => {
         await this.getAllPages();
+        await this.getMenu();
     };
 
     render() {
