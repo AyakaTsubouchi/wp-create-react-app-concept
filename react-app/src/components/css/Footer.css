@@ -1,0 +1,27 @@
+.footer .container{
+    max-width: 100%;
+}
+.footer h5{
+    color:#11B7B5;
+    font-size:25px;
+}
+.footer .icons a{
+    color:#11B7B5;
+    font-size:30px;
+}
+.footer .icons svg:not(:root).svg-inline--fa{
+    margin:10px;
+}
+.footer .form-group{
+    border:1px solid gray;
+}
+.footer input{
+    border:none!important;
+    width: 100%;
+    padding: 0!important;
+}
+.footer button.green-button{
+    border:none;
+    margin:0;
+    border-radius: 0;
+}

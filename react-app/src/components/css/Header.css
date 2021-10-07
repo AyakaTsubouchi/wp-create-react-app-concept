@@ -1,35 +1,49 @@
-.home .header {
-    text-align: center;
+header{
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+header a.nav-link, header .nav-item a {
+    color: black;
+}
+
+header .logo {
+    margin-right: 30px;
+}
+
+header .nav-item:not(.dropdown) {
+    margin-top: 9px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+header .buttons {
+    padding-top: 10px;
+    /* border-left: 1px solid gray; */
+}
+
+header .login {
+    color: black;
+    opacity: 0.5;
+}
+
+header .custom-btn {
+    margin-left: 10px
+}
+
+header .custom-btn .green-button {
     padding: 10px;
 }
 
-.home h2 {
-    font-size: 42px;
+header hr {
+    width: 20px;
+    transform: rotate( 90deg);
+    opacity: 0.5;
+    margin-right: 30px;
+    margin-top: 15px;
 }
 
-.home p {
-    font-size: 18px;
-}
-
-/* hero section */
-
-.home .hero-section {
-    background: url("http://localhost:8888/wp-content/uploads/2021/10/Screen-Shot-2021-10-06-at-8.57.13-PM.png");
-    background-size: cover;
-    background-repeat: none;
-    height: 90vh;
-    margin: 0px auto;
-    padding: 60px 30px;
-}
-
-.home .text-container {
-    padding-top: 10%;
-}
-
-.home .hero-section a.red {
-    color: red;
-    padding: 6px 7px;
-    margin: 10px;
-}
-
-/* How Goopter works  */
+/* header #nav-dropdown-1+.dropdown-menu {
+    top: -50px;
+    left: 190px;
+} */
