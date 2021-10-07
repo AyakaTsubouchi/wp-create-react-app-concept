@@ -1,8 +1,20 @@
 /* global css */
 body {
     overflow-x:hidden;
-    background:white;
+    background:white!important;
 }
 a{
     text-decoration: none;
+}
+
+.green-button{
+    background-color: #11b7b5;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin: 10px;
+}
+.green-button:hover{
+    background-color: #0E9795;
+    color: white;
 }

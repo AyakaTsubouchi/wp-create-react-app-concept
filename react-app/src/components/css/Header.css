@@ -1,0 +1,44 @@
+header {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+header a.nav-link, header .nav-item a {
+    color: black;
+}
+
+header .logo {
+    margin-right: 30px;
+}
+
+header .nav-item:not(.dropdown) {
+    margin-top: 9px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+header .buttons {
+    padding-top: 10px;
+    /* border-left: 1px solid gray; */
+}
+
+header .login {
+    color: black;
+    opacity: 0.5;
+}
+
+header .custom-btn {
+    margin-left: 10px
+}
+
+header .custom-btn .green-button {
+    padding: 10px;
+}
+
+header hr {
+    width: 20px;
+    transform: rotate( 90deg);
+    opacity: 0.5;
+    margin-right: 30px;
+    margin-top: 15px;
+}
