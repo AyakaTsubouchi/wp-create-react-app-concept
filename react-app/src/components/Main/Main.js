@@ -28,7 +28,7 @@ class Main extends Component {
               </Link>
             );
           })}
-          <Header />
+          <Header menu={data.menu}/>
           <Switch>
             {data.pages.map((page, index) => {
               return (

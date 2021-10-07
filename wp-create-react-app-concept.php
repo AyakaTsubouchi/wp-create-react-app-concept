@@ -13,14 +13,14 @@
 
 //  create wp menu 
 function wpb_custom_new_menu() {
-	register_nav_menu('react-menu',__( 'React Menu' ));
+	register_nav_menu('menu',__( 'Menu' ));
 }
 add_action( 'init', 'wpb_custom_new_menu' );
 
 // try to add the endpoint for menu - failed start
   function get_my_menu() {
     // Replace your menu name, slug or ID carefully
-    return wp_get_nav_menu_items('React Menu');
+    return wp_get_nav_menu_items('menu');
 }
 
 add_action( 'rest_api_init', function () {

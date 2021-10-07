@@ -1,4 +1,8 @@
 /* global css */
+body {
+    overflow-x:hidden;
+    background:white;
+}
 a{
     text-decoration: none;
 }
