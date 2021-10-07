@@ -5,6 +5,7 @@ import React, { Component } from "react";
 // import Pages from "./pages/Pages";
 import ExamplePage from "./pages/ExamplePage";
 import Home from "./pages/Home";
+import Header from "../Header"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Main extends Component {
@@ -27,6 +28,7 @@ class Main extends Component {
               </Link>
             );
           })}
+          <Header/>
           <Switch>
             {data.pages.map((page, index) => {
               return (
