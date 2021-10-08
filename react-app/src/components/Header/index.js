@@ -5,7 +5,7 @@ import "../css/Header.css";
 
 export default function index() {
   return (
-    <header className="row container">
+    <header className="row">
       <div className="col-lg-8 d-flex">
         <div className="logo">
           <Link to="/">

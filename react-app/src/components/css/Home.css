@@ -1,30 +1,155 @@
-.home .header{
-    text-align:center;
-    padding:10px;
-    }
-    .home h2{
-        font-size: 42px;
-    }
-    .home p{
-        font-size: 18px;
-    }
-    /* hero section */
-    .home .hero-section{
-        background: url("http://localhost:8888/wp-content/uploads/2021/10/Screen-Shot-2021-10-06-at-8.57.13-PM.png");
-        background-size: cover;
-        background-repeat: none;
-        height: 90vh;
-        margin: 0px auto;
-        padding: 60px 30px;
-    }
-    .home .text-container{
-        padding-top: 10%;
-    }
-    
-    .home .hero-section a.red{
-        color: red;
-        padding: 6px 7px;
-        margin: 10px;
-    }
-    
-    /* How Goopter works  */
+.home .header {
+    text-align: center;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+.home .header h3 {
+    font-weight: 600;
+}
+
+.home .ggreen {
+    color: #11b7b5;
+}
+
+.home .gaccent {
+    color: #FF3300!important;
+}
+
+.home h2 {
+    font-size: 42px;
+}
+
+.home p {
+    font-size: 18px;
+}
+
+.home a {
+    font-weight: 600;
+}
+
+.home .hero-bg1 {
+    position: absolute;
+    top: 0;
+    left: -20;
+    z-index: -1;
+}
+
+.home .hero-bg2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.home .hero-bg3 {
+    position: absolute;
+    bottom: -150px;
+    right: 0;
+    height: 300px;
+}
+
+/* hero section */
+
+.home .hero-section {
+    height: 90vh;
+    margin: 0px auto;
+    padding: 60px 30px;
+}
+
+.home .text-container {
+    padding-top: 10%;
+}
+
+.home .hero-section a.gaccent {
+    color: #FF3300;
+    padding: 6px 7px;
+    margin: 10px;
+}
+
+/* How Goopter works  */
+
+.home .howGoopter .hg-bg4 {
+    position: absolute;
+    bottom: -90px;
+    left: 0;
+    height: 300px;
+}
+
+.home .howGoopter {
+    position: relative;
+    z-index: -1;
+    background-color: #E7F8F8;
+    height: 400px;
+}
+
+/* software solution */
+
+.home .softwareSlution {
+    height: 400px;
+}
+
+/* hardware solution */
+
+.home .hardwareSlution .contents {
+    height: 400px;
+    background-image: linear-gradient(to right, #E9F8F8, white);
+}
+
+/* Is Goopter right for you? */
+
+.isGoopter .contents {
+    background: #E7F8F8;
+    padding: 30px;
+}
+
+.isGoopter .contents .contentsDesc .card {
+    border-left: #FF3300 10px solid;
+    padding: 30px;
+}
+
+/* What sets us apart */
+
+.whatSets {
+    position: relative;
+}
+
+.whatSets .devider {
+    width: 300px;
+    transform: rotate(90deg);
+    /* display:inline-block; */
+    position: absolute;
+    top: calc(50% + 60px);
+    left: calc(50% - 150px);
+}
+
+.right-box {
+    /* border-left: 1px solid gray; */
+    padding-left: 50px;
+}
+
+.whatSets .btn {
+    margin-right: 40px;
+}
+
+.whatSets p.weaker {
+    font-size: 16px;
+    color: 505050;
+}
+
+/* what are you waiting for */
+
+.waitingFor {
+    background: #FFEBE6;
+}
+
+.waitingFor .contents {
+    text-align: center;
+    padding-bottom: 30px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.waitingFor .contents img {
+    float: left;
+}

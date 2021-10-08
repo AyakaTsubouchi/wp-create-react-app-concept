@@ -17,7 +17,7 @@ class Main extends Component {
     return (
       <>
         <Router>
-          {data.pages.map((page, index) => {
+          {/* {data.pages.map((page, index) => {
             return (
               <Link
                 to={`/${page.slug}`}
@@ -27,7 +27,7 @@ class Main extends Component {
                 {page.slug}
               </Link>
             );
-          })}
+          })} */}
           <Header menu={data.menu}/>
           <Switch>
             {data.pages.map((page, index) => {

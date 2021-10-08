@@ -1,20 +1,42 @@
 /* global css */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400&display=swap');
 body {
-    overflow-x:hidden;
-    background:white!important;
+    overflow-x: hidden;
+    background: white;
+    font-family: 'Lato', sans-serif;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-.green-button{
+.green-button {
     background-color: #11b7b5;
     color: white;
     padding: 6px 10px;
     border-radius: 8px;
     margin: 10px;
 }
-.green-button:hover{
+
+.accent-button {
+    background-color: #FF3300;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.green-button a, .accent-button a {
+    color: white;
+}
+
+.green-button:hover {
     background-color: #0E9795;
     color: white;
 }
