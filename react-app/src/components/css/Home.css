@@ -80,7 +80,11 @@
     position: relative;
     z-index: -1;
     background-color: #E7F8F8;
+    /* height: 400px; */
+}
+.home .howGoopter .carousel-inner img{
     height: 400px;
+    object-fit: contain;
 }
 
 /* software solution */

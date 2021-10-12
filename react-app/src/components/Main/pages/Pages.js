@@ -7,7 +7,7 @@ class Pages extends Component {
             <div>
                 PAGES
                 {this.props.pages.data.map((page, index) => {
-                    return <div>{`wp-test/${page.slug}`}</div>;
+                    return <div>{`/${page.slug}`}</div>;
                 })}
             </div>
         );

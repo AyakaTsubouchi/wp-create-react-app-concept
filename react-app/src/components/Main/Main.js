@@ -4,7 +4,8 @@ import React, { Component } from "react";
 // import Contacts from "./pages/Contacts";
 // import Pages from "./pages/Pages";
 import ExamplePage from "./pages/ExamplePage";
-import Home from "./pages/Home";
+import Page from "./pages/Pages";
+import Home from "./pages/home/Home"
 import Header from "../Header";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -17,18 +18,7 @@ class Main extends Component {
     return (
       <>
         <Router>
-          {/* {data.pages.map((page, index) => {
-            return (
-              <Link
-                to={`/${page.slug}`}
-                key={index}
-                style={{ marginLeft: "10px" }}
-              >
-                {page.slug}
-              </Link>
-            );
-          })} */}
-          <Header menu={data.menu}/>
+          <Header menu={data.menu} />
           <Switch>
             {data.pages.map((page, index) => {
               return (
@@ -39,8 +29,7 @@ class Main extends Component {
                   <Route
                     exact
                     key={index}
-                    path={`/${page.slug}`} //ayaka's local
-                    // path={`/wp-test/${page.slug}`}
+                    path={`/${page.slug}`}
                     render={(props) => <ExamplePage {...props} page={page} />}
                   />
                 </>
