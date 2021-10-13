@@ -4,28 +4,29 @@ import { Link } from "react-router-dom";
 import "../css/Header.css";
 import { navModal } from "../data";
 
+
 export default function Index(props) {
   const menu = props.menu;
   const rootUrl = "http://localhost:8888";
   const parents = [];
   const [pmenu, setPmenu] = useState();
   const [show, setShow] = useState(false);
-  const [modalId, setModalId] = useState();
   const [modalTitle, setModalTitle] = useState();
+  const [modalContents, setModalContents] = useState();
 
   const handleShow = (data) => {
+    const id = data.ID
     setShow(true);
-    setModalId(data.ID.toString());
     setModalTitle(data.title);
-    // console.log("modal", navModal.modalId.contents);
+    setModalContents(navModal[id])
   };
+
 
   useEffect(() => {
     makeMenuArr();
   }, [menu]);
 
   const makeMenuArr = () => {
-    let submenuCounter = 0;
     menu.map((item) => {
       //  find parents
       if (item.menu_item_parent === "0") {
@@ -49,14 +50,12 @@ export default function Index(props) {
 
   return (
     <header className="row">
-      {console.log("parents", pmenu)}
-      {console.log("modalId", modalId)}
       <div className="col-lg-8 d-flex">
         <div className="logo">
           <Link to="/">
             <img
               src="http://localhost:8888/wp-content/uploads/2021/10/logo.png"
-              alto="logo"
+              alt="logo"
             />
           </Link>
         </div>
@@ -90,7 +89,6 @@ export default function Index(props) {
                                 <a
                                   onClick={() => {
                                     handleShow(childItem);
-                                    console.log(typeof modalId);
                                   }}
                                 >
                                   {childItem.title}
@@ -98,61 +96,32 @@ export default function Index(props) {
                               </li>
                               <Modal
                                 show={show}
-                                // onHide={handleClose}
                                 animation={false}
                                 backdrop={true}
                                 onHide={() => setShow(false)}
+                                dialogClassName="modal-90w"
                               >
                                 <Modal.Header closeButton>
                                   <Modal.Title>{modalTitle}</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
                                   <div className="row">
-                                    <div className="col-lg-4 col-sm-2">
+                                  {
+                                    modalContents? modalContents.map(content=>(
+                                      <div className="col-lg-4">
                                       <h5 className="ggreen">
-                                        Acquire New Customers
+                                        {content.title}
                                       </h5>
+                                      {content.imgUrl? <img src={content.imgUrl} alt="solution"/>: null}
                                       <p>
-                                        Grow your customer base and gain
-                                        recognition online. Goopter helps
-                                        integrate your business with the top
-                                        social platforms. Serve more guests with
-                                        our multi-language platform.
+                                       {content.contents}
                                       </p>
-                                      <a href="#" className="accent-button">
+                                      <a href={content.link} className="accent-button">
                                         Learn More
                                       </a>
                                     </div>
-                                    <div className="col-lg-4 col-sm-2">
-                                      <h5 className="ggreen">
-                                        Acquire New Customers
-                                      </h5>
-                                      <p>
-                                        Grow your customer base and gain
-                                        recognition online. Goopter helps
-                                        integrate your business with the top
-                                        social platforms. Serve more guests with
-                                        our multi-language platform.
-                                      </p>
-                                      <a href="#" className="accent-button">
-                                        Learn More
-                                      </a>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-2">
-                                      <h5 className="ggreen">
-                                        Acquire New Customers
-                                      </h5>
-                                      <p>
-                                        Grow your customer base and gain
-                                        recognition online. Goopter helps
-                                        integrate your business with the top
-                                        social platforms. Serve more guests with
-                                        our multi-language platform.
-                                      </p>
-                                      <a href="#" className="accent-button">
-                                        Learn More
-                                      </a>
-                                    </div>
+                                    )) :null
+                                  }
                                   </div>
                                 </Modal.Body>
                                 <Modal.Footer></Modal.Footer>

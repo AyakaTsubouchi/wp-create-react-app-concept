@@ -1,13 +1,41 @@
 export const navModal =
     {
         "6865":[
-            {
+            {   title:"test title 1",
                 contents:"test1",
-                imgUrl:"#"
+                imgUrl:"",
+                link:"#"
             },
             {
+                title:"test title 2",
                 contents:"test2",
-                imgUrl:"#"
+                imgUrl:"",
+                link:"#"
+            },
+            {
+                title:"test title 3",
+                contents:"test3",
+                imgUrl:"",
+                link:"#"
+            }
+        ],
+        "6866":[
+            {   title:"hard title 1",
+                contents:"test1",
+                link:"#",
+                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
+            },
+            {
+                title:"hard title 2",
+                contents:"test2",
+                link:"#",
+                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
+            },
+            {
+                title:"hard title 3",
+                contents:"test3",
+                link:"#",
+                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
             }
         ]
     }
@@ -89,6 +117,3 @@ export const softwareSlution = [
 },
 ]
 
-export const hardwareSolution = [
-
-]
