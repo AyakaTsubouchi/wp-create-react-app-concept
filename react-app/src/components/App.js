@@ -5,7 +5,7 @@ import Main from "./Main/Main";
 // import Footer from "./Footer/Footer";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import {rootUrl} from "../components/setting"
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class App extends React.Component {
     }
 
     getAllPages = async () => {
-        let res = axios.get("http://localhost:8888/wp-json/wp/v2/pages");
+        let res = axios.get(rootUrl+"/wp-json/wp/v2/pages");
 
         let { data } = await res;
 
@@ -29,7 +29,7 @@ class App extends React.Component {
         console.log(data);
     };
     getMenu = async () => {
-        let res = axios.get("http://localhost:8888/wp-json/wp/v2/menu");
+        let res = axios.get(rootUrl+"/wp-json/wp/v2/menu");
 
         let { data } = await res;
 
@@ -39,7 +39,7 @@ class App extends React.Component {
         console.log(data);
     };
     getFooter = async () => {
-        let res = axios.get("http://localhost:8888/wp-json/wp/v2/footer");
+        let res = axios.get(rootUrl+"/wp-json/wp/v2/footer");
 
         let { data } = await res;
 
@@ -50,7 +50,7 @@ class App extends React.Component {
     };
 
     getFooter2 = async () => {
-        let res = axios.get("http://localhost:8888/wp-json/wp/v2/footer2");
+        let res = axios.get(rootUrl+"/wp-json/wp/v2/footer2");
 
         let { data } = await res;
 

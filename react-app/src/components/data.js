@@ -1,3 +1,4 @@
+import { rootUrl } from "./setting";
 export const navModal =
     {
         "6865":[
@@ -23,19 +24,19 @@ export const navModal =
             {   title:"hard title 1",
                 contents:"test1",
                 link:"#",
-                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
+                imgUrl:rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
             },
             {
                 title:"hard title 2",
                 contents:"test2",
                 link:"#",
-                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
+                imgUrl:rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
             },
             {
                 title:"hard title 3",
                 contents:"test3",
                 link:"#",
-                imgUrl:"http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
+                imgUrl:rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Website-Ordering.png"
             }
         ]
     }
@@ -78,7 +79,7 @@ export const softwareSlution = [
     title:"Acquire New Customers",
     text:"Don’t limit your business. Expand your customer reach with Goopter.",
     link:"#",
-    img:"http://localhost:8888/wp-content/uploads/2021/10/Group-41.png",
+    img:rootUrl+"/wp-content/uploads/2021/10/Group-41.png",
     benefit:[
         {
             id:1,
@@ -99,7 +100,7 @@ export const softwareSlution = [
     title:"2Acquire New Customers",
     text:"2Don’t limit your business. Expand your customer reach with Goopter.",
     link:"#",
-    img:"http://localhost:8888/wp-content/uploads/2021/10/Group-41.png",
+    img:rootUrl+"/wp-content/uploads/2021/10/Group-41.png",
     benefit:[
         {
             id:1,

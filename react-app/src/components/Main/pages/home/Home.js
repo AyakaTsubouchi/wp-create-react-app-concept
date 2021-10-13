@@ -4,6 +4,7 @@ import "../../../css/Home.css";
 import { softwareSlution, useCaseData,navModal } from "../../../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {rootUrl} from "../../../setting"
 
 
 const Home = () => {
@@ -29,15 +30,15 @@ const Home = () => {
       <div className="home">
         <img
           className="hero-bg1"
-          src="http://localhost:8888/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.23-PM.png"
+          src={rootUrl+"/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.23-PM.png"}
         />
         <img
           className="hero-bg2"
-          src="http://localhost:8888/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.59-PM.png"
+          src={rootUrl+"/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.59-PM.png"}
         />
         <img
           className="hero-bg3"
-          src="http://localhost:8888/wp-content/uploads/2021/10/Background-graphic-right-side.png"
+          src={rootUrl+"/wp-content/uploads/2021/10/Background-graphic-right-side.png"}
         />
         <section className="hero-section">
           <div className="container row mx-auto">
@@ -61,7 +62,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6 col-sm-12">
               <img
-                src="http://localhost:8888/wp-content/uploads/2021/10/Group-41.png"
+                src={rootUrl+"/wp-content/uploads/2021/10/Group-41.png"}
                 alto="goopter"
                 style={{ width: "80%", margin: "0 auto" }}
               />
@@ -71,7 +72,7 @@ const Home = () => {
         <section className="howGoopter">
           <img
             className="hg-bg4"
-            src="http://localhost:8888/wp-content/uploads/2021/10/Background-graphic-left-side.png"
+            src={rootUrl+"/wp-content/uploads/2021/10/Background-graphic-left-side.png"}
             alto="background"
           />
           <div className="container">
@@ -87,7 +88,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Analytics.png"
+                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Analytics.png"}
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -100,7 +101,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Available-on-all-platforms.png"
+                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Available-on-all-platforms.png"}
                   alt="Second slide"
                 />
 
@@ -114,7 +115,7 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="http://localhost:8888/wp-content/uploads/2021/10/Slider-Image-Consumer-Mobile-Apps.png"
+                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Consumer-Mobile-Apps.png"}
                   alt="Third slide"
                 />
 
@@ -322,7 +323,7 @@ const Home = () => {
             <p>Take your business to the next level</p>
           </div>
           <div className="contents">
-            <img src="http://localhost:8888/wp-content/uploads/2021/10/Final-CTA-Icon.svg" />
+            <img src={rootUrl+"/wp-content/uploads/2021/10/Final-CTA-Icon.svg"} />
             <p>
               Try for free and see how Goopter can revolutionize your business.
             </p>

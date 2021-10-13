@@ -1,6 +1,16 @@
 .footer .container{
     max-width: 100%;
     padding-top: 30px;
+    font-weight: 500;
+}
+.footer ul{
+    padding-left:0!important;
+}
+.footer li{
+    margin-top: 10px;
+}
+.footer a{
+    color: black;
 }
 .footer h5{
     color:#11B7B5;
@@ -17,9 +27,8 @@
     border:1px solid gray;
 }
 .footer input{
-    border:none!important;
+    border:none;
     width: 100%;
-    padding: 0!important;
 }
 .footer button.green-button{
     border:none;

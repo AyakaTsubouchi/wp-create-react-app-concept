@@ -3,11 +3,11 @@ import { Nav, NavDropdown, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Header.css";
 import { navModal } from "../data";
+import {rootUrl} from "../setting"
 
 
 export default function Index(props) {
   const menu = props.menu;
-  const rootUrl = "http://localhost:8888";
   const parents = [];
   const [pmenu, setPmenu] = useState();
   const [show, setShow] = useState(false);
@@ -54,7 +54,7 @@ export default function Index(props) {
         <div className="logo">
           <Link to="/">
             <img
-              src="http://localhost:8888/wp-content/uploads/2021/10/logo.png"
+              src={rootUrl+"/wp-content/uploads/2021/10/logo.png"}
               alt="logo"
             />
           </Link>

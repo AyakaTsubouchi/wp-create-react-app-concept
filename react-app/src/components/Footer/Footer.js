@@ -6,11 +6,11 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import "../css/Footer.css";
+import {rootUrl} from "../setting"
 
 export default function Footer(props) {
   const footer = props.footer;
   const footer2= props.footer2;
-  const rootUrl = "http://localhost:8888";
   const [footerArr, setFooterArr] = useState();
   const [footer2Arr, setFooter2Arr] = useState();
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Footer(props) {
       <div className="container row">
         <div className="logo col-lg-2">
           <img
-            src="http://localhost:8888/wp-content/uploads/2021/10/logo.png"
+            src={rootUrl+"/wp-content/uploads/2021/10/logo.png"}
             alto="logo"
           />
         </div>
