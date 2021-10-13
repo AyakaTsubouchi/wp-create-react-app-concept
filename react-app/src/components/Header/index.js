@@ -1,17 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Nav, NavDropdown } from "react-bootstrap";
+import { Nav, NavDropdown, Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/Header.css";
+import { navModal } from "../data";
 
 export default function Index(props) {
   const menu = props.menu;
   const rootUrl = "http://localhost:8888";
   const parents = [];
   const [pmenu, setPmenu] = useState();
+  const [show, setShow] = useState(false);
+  const [modalId, setModalId] = useState();
+  const [modalTitle, setModalTitle] = useState();
+
+  const handleShow = (data) => {
+    setShow(true);
+    setModalId(data.ID.toString());
+    setModalTitle(data.title);
+    // console.log("modal", navModal.modalId.contents);
+  };
+
   useEffect(() => {
     makeMenuArr();
   }, [menu]);
+
   const makeMenuArr = () => {
+    let submenuCounter = 0;
     menu.map((item) => {
       //  find parents
       if (item.menu_item_parent === "0") {
@@ -27,43 +41,16 @@ export default function Index(props) {
             parent.children.push(item);
           }
         });
-        setPmenu(parents);
       }
     });
-  };
-  // const showMenu = (menu) => {
-  //   if (menu===undefined) {
-  //     return;
-  //   } else {
-  //     menu.map((item) => {
-  //       if (item.children.length > 0) {
-  //         <NavDropdown title={item.title} id="nav-dropdown">
-  //           {item.children.map((item) => {
-  //             if (item.children.length > 0) {
-  //               <NavDropdown title={item.title} id="nav-dropdown">
-  //                 {item.children.map(<Link to="#">{item.title}</Link>)}
-  //               </NavDropdown>;
-  //             } else {
-  //               <Link to="#">{item.title}</Link>;
-  //             }
-  //           })}
-  //         </NavDropdown>;
-  //       } else {
-  //         <Link to="#">{item.title}</Link>;
-  //       }
-  //     });
-  //   }
-  // };
-  const showMenu = () => {
-   
-      
-      pmenu.map((item) => <li>{item.title}</li>);
-  
+    //how to find grand children
+    setPmenu(parents);
   };
 
   return (
     <header className="row">
       {console.log("parents", pmenu)}
+      {console.log("modalId", modalId)}
       <div className="col-lg-8 d-flex">
         <div className="logo">
           <Link to="/">
@@ -74,75 +61,122 @@ export default function Index(props) {
           </Link>
         </div>
         <Nav>
-          {pmenu? pmenu.map((item) => {
-            if(item.children.length < 1){
-            return <Nav.Item>
-            <Link to={item.url.substr(rootUrl.length,item.url.length)}>{item.title}</Link>
-          </Nav.Item>
-            }else{
-              return <NavDropdown
-              title={item.title}
-              id="nav-dropdown-1"
-            >
-              {/* {
-                item.children.map(item=>{
-                  if(item.children.length < 1){
-            return <li>{item.title}</li>
-            }else{
-              return  <NavDropdown
-              title={item.title}
-              id="nav-dropdown-1"
-            > </NavDropdown>
-            }
-                })
-              } */}
-            </NavDropdown>
-            }
-            }) :null}
-          {/* <NavDropdown title="Products" id="nav-dropdown">
-         
-            <NavDropdown
-              title="Software Platform"
-              id="nav-dropdown-1"
-            >
-              <div className="solition">
-                <h4>Acquire New Customers</h4>
-                <p>Grow your customer base and fain recognition online</p>
-                <Link to="/contact">Learn more</Link>
-              </div>
-              <div className="solition">
-                <h4>Acquire New Customers</h4>
-                <p>Grow your customer base and fain recognition online</p>
-                <Link to="/contact">Learn more</Link>
-              </div>
-              <div className="solition col">
-                <h4>Acquire New Customers</h4>
-                <p>Grow your customer base and fain recognition online</p>
-                <Link to="/contact">Learn more</Link>
-              </div>
-            </NavDropdown>
-            <NavDropdown title="Hardware Solutions" id="nav-dropdown-1">
-              <div className="solition col">
-                <h4>Delivery Robot 1</h4>
-                <p>Grow your customer base and fain recognition online</p>
-                <Link to="/contact">Learn more</Link>
-              </div>
-            </NavDropdown>
-          </NavDropdown>
-          <NavDropdown title="Use cases" id="use-cases">
-            <NavDropdown.Item>
-              <Link to="/">Use cases</Link>
-            </NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Item>
-            <Link to="/">Pricing</Link>
-          </Nav.Item>
-          <NavDropdown title="Resources" id="use-cases">
-            <NavDropdown.Item>Resources</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title="Company" id="use-cases">
-            <NavDropdown.Item>Company</NavDropdown.Item>
-          </NavDropdown> */}
+          {pmenu
+            ? pmenu.map((item) => {
+                if (item.children.length < 1) {
+                  return (
+                    <Nav.Item>
+                      <Link
+                        to={item.url.substr(rootUrl.length, item.url.length)}
+                      >
+                        {item.title}
+                      </Link>
+                    </Nav.Item>
+                  );
+                } else {
+                  return (
+                    <NavDropdown title={item.title} id="nav-dropdown-1">
+                      {item.children.map((childItem) => {
+                        let hasGrandChildren = childItem.classes.find(
+                          (item) => item === "hasGrand"
+                        );
+                        if (
+                          childItem.menu_item_parent !== 0 &&
+                          hasGrandChildren
+                        ) {
+                          return (
+                            <>
+                              <li>
+                                <a
+                                  onClick={() => {
+                                    handleShow(childItem);
+                                    console.log(typeof modalId);
+                                  }}
+                                >
+                                  {childItem.title}
+                                </a>
+                              </li>
+                              <Modal
+                                show={show}
+                                // onHide={handleClose}
+                                animation={false}
+                                backdrop={true}
+                                onHide={() => setShow(false)}
+                              >
+                                <Modal.Header closeButton>
+                                  <Modal.Title>{modalTitle}</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                  <div className="row">
+                                    <div className="col-lg-4 col-sm-2">
+                                      <h5 className="ggreen">
+                                        Acquire New Customers
+                                      </h5>
+                                      <p>
+                                        Grow your customer base and gain
+                                        recognition online. Goopter helps
+                                        integrate your business with the top
+                                        social platforms. Serve more guests with
+                                        our multi-language platform.
+                                      </p>
+                                      <a href="#" className="accent-button">
+                                        Learn More
+                                      </a>
+                                    </div>
+                                    <div className="col-lg-4 col-sm-2">
+                                      <h5 className="ggreen">
+                                        Acquire New Customers
+                                      </h5>
+                                      <p>
+                                        Grow your customer base and gain
+                                        recognition online. Goopter helps
+                                        integrate your business with the top
+                                        social platforms. Serve more guests with
+                                        our multi-language platform.
+                                      </p>
+                                      <a href="#" className="accent-button">
+                                        Learn More
+                                      </a>
+                                    </div>
+                                    <div className="col-lg-4 col-sm-2">
+                                      <h5 className="ggreen">
+                                        Acquire New Customers
+                                      </h5>
+                                      <p>
+                                        Grow your customer base and gain
+                                        recognition online. Goopter helps
+                                        integrate your business with the top
+                                        social platforms. Serve more guests with
+                                        our multi-language platform.
+                                      </p>
+                                      <a href="#" className="accent-button">
+                                        Learn More
+                                      </a>
+                                    </div>
+                                  </div>
+                                </Modal.Body>
+                                <Modal.Footer></Modal.Footer>
+                              </Modal>
+                            </>
+                          );
+                        } else {
+                          return (
+                            <Link
+                              to={childItem.url.substr(
+                                rootUrl.length,
+                                childItem.url.length
+                              )}
+                            >
+                              {item.title}
+                            </Link>
+                          );
+                        }
+                      })}
+                    </NavDropdown>
+                  );
+                }
+              })
+            : null}
         </Nav>
       </div>
       <div className="col-lg-4 buttons d-flex justify-content-end">

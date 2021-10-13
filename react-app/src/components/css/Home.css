@@ -8,14 +8,6 @@
     font-weight: 600;
 }
 
-.home .ggreen {
-    color: #11b7b5;
-}
-
-.home .gaccent {
-    color: #FF3300!important;
-}
-
 .home h2 {
     font-size: 42px;
 }
@@ -88,9 +80,22 @@
 }
 
 /* software solution */
-
-.home .softwareSlution {
-    height: 400px;
+.home .softwareSlution .row{
+    padding-top:40px;
+}
+.home .softwareSlution .row .title{
+    width: 50%;
+}
+.home .softwareSlution img{
+   width: 100%;
+   object-fit: cover;
+}
+.home .softwareSlution ul{
+    margin-left: 25%;
+    margin-top:10px
+}
+.home .softwareSlution ul li span{
+    margin-right: 10px;
 }
 
 /* hardware solution */

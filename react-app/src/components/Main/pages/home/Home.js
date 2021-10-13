@@ -1,40 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from "react-bootstrap/Carousel";
 import "../../../css/Home.css";
+import { softwareSlution, useCaseData } from "../../../data";
 
-const useCaseData = [
-  {
-    title: "Restaurant",
-    id: 1,
-    desc: "Goopter gives restaurants the ability to process orders online. Save time by letting your customers order and pay on their mobile devices. Send your customers real-time order updates to ensure a smooth pick up and delivery process. Your staff will take orders with ease with Goopter’s simple POS interface. Send orders directly to your kitchen printers and cut down on time spent manually inputting orders. Our all-in-one system provides intelligent & seamless support for dine-in, pick up and delivery orders from a single touchpoint.",
-    link: "#",
-  },
-  {
-    title: "Automated Dining",
-    id: 2,
-    desc: "Automated DiningGoopter gives restaurants the ability to process orders online. Save time by letting your customers order and pay on their mobile devices. Send your customers real-time order updates to ensure a smooth pick up and delivery process. Your staff will take orders with ease with Goopter’s simple POS interface. Send orders directly to your kitchen printers and cut down on time spent manually inputting orders. Our all-in-one system provides intelligent & seamless support for dine-in, pick up and delivery orders from a single touchpoint.",
-    link: "#",
-  },
-  {
-    title: "Retail Stores",
-    id: 3,
-    desc: "Retail Stores Goopter gives restaurants the ability to process orders online. Save time by letting your customers order and pay on their mobile devices. Send your customers real-time order updates to ensure a smooth pick up and delivery process. Your staff will take orders with ease with Goopter’s simple POS interface. Send orders directly to your kitchen printers and cut down on time spent manually inputting orders. Our all-in-one system provides intelligent & seamless support for dine-in, pick up and delivery orders from a single touchpoint.",
-    link: "#",
-  },
-  {
-    title: "Movie Theatres",
-    id: 4,
-    desc: "Movie Theatres Goopter gives restaurants the ability to process orders online. Save time by letting your customers order and pay on their mobile devices. Send your customers real-time order updates to ensure a smooth pick up and delivery process. Your staff will take orders with ease with Goopter’s simple POS interface. Send orders directly to your kitchen printers and cut down on time spent manually inputting orders. Our all-in-one system provides intelligent & seamless support for dine-in, pick up and delivery orders from a single touchpoint.",
-    link: "#",
-  },
-  {
-    title: "Casinos",
-    id: 5,
-    desc: "Casinos Goopter gives restaurants the ability to process orders online. Save time by letting your customers order and pay on their mobile devices. Send your customers real-time order updates to ensure a smooth pick up and delivery process. Your staff will take orders with ease with Goopter’s simple POS interface. Send orders directly to your kitchen printers and cut down on time spent manually inputting orders. Our all-in-one system provides intelligent & seamless support for dine-in, pick up and delivery orders from a single touchpoint.",
-    link: "#",
-  },
-];
 const Home = () => {
   const [useCase, setUseCase] = useState("Restaurant");
   const [description, setDescription] = useState(useCaseData[0].desc);
@@ -42,8 +10,8 @@ const Home = () => {
 
   useEffect(() => {
     showUseCases();
+    console.log("s", softwareSlution);
   }, [useCase]);
-
 
   const showUseCases = () => {
     useCaseData.map((item) =>
@@ -164,10 +132,50 @@ const Home = () => {
               <h3>Software Solution</h3>
               <p className="ggreen">Ecommerce platform</p>
             </div>
-            <div className="row">
-              <div className="col-lg-6 col-sm-12"></div>
-              <div className="col-lg-6 col-sm-12"></div>
-            </div>
+            {softwareSlution.map((item) => {
+              if (item.id % 2 !== 0) {
+                return (
+                  <div className="row">
+                    <div className="col-lg-6 col-sm-12">
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                      <p>{item.text}</p>
+                      <div className="btn-wrapper text-center">
+                        <a className="accent-button">Request a free demo</a>
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-sm-12">
+                      <img src={item.img} alt="" />
+                      <ul className="text-center">
+                        {item.benefit.map((menu) => (
+                          <li>{menu.text}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="row">
+                    <div className="col-lg-6 col-sm-12">
+                      <img src={item.img} alt="" />
+                      <ul className="text-center">
+                        {item.benefit.map((bene) => (
+                          <li>{bene.text}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="col-lg-6 col-sm-12">
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                      <div className="btn-wrapper text-center">
+                        <a className="green-button">Request a free demo</a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            })}
           </div>
         </section>
         <section className="hardwareSlution">

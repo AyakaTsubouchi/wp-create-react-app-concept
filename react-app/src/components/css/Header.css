@@ -1,7 +1,8 @@
 header{
     padding: 20px;
     background:white;
-    }
+}
+
     
     header a.nav-link, header .nav-item a {
         color: black;
@@ -16,7 +17,7 @@ header{
         margin-right: 10px;
         margin-left: 10px;
     }
-    
+ 
     header .buttons {
         padding-top: 10px;
         /* border-left: 1px solid gray; */
@@ -43,7 +44,4 @@ header{
         margin-top: 15px;
     }
     
-    /* header #nav-dropdown-1+.dropdown-menu {
-        top: -50px;
-        left: 190px;
-    } */
+   
