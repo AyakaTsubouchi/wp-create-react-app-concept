@@ -7,6 +7,7 @@ import ExamplePage from "./pages/ExamplePage";
 import Page from "./pages/Pages";
 import Home from "./pages/home/Home"
 import Header from "../Header";
+import Footer from "../Footer/Footer"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Main extends Component {
@@ -36,6 +37,7 @@ class Main extends Component {
               );
             })}
           </Switch>
+          <Footer footer={data.footer}/>
         </Router>
       </>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./css/App.css";
 import Main from "./Main/Main";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -12,7 +12,9 @@ class App extends React.Component {
 
         this.state = {
             pages: [],
-            menu:[]
+            menu:[],
+            footer:[],
+            footer2:[]
         };
     }
 
@@ -36,17 +38,39 @@ class App extends React.Component {
         });
         console.log(data);
     };
+    getFooter = async () => {
+        let res = axios.get("http://localhost:8888/wp-json/wp/v2/footer");
+
+        let { data } = await res;
+
+        this.setState({
+            footer: data,
+        });
+        console.log(data);
+    };
+
+    getFooter2 = async () => {
+        let res = axios.get("http://localhost:8888/wp-json/wp/v2/footer2");
+
+        let { data } = await res;
+
+        this.setState({
+            footer2: data,
+        });
+    };
 
     componentDidMount = async () => {
         await this.getAllPages();
         await this.getMenu();
+        await this.getFooter();
+        await this.getFooter2();
     };
 
     render() {
         return (
             <Router>
                 <Main data={this.state} />
-                <Footer data={this.state} />
+                {/* <Footer data={this.state} /> */}
             </Router>
         );
     }

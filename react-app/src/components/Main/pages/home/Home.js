@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "../../../css/Home.css";
-import { softwareSlution, useCaseData } from "../../../data";
+import { softwareSlution, useCaseData,navModal } from "../../../data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+
 
 const Home = () => {
   const [useCase, setUseCase] = useState("Restaurant");
   const [description, setDescription] = useState(useCaseData[0].desc);
   const [id, setId] = useState(useCaseData[0].id);
+  const hardwareSlutionData = navModal["6866"];
 
   useEffect(() => {
     showUseCases();
-    console.log("s", softwareSlution);
   }, [useCase]);
 
   const showUseCases = () => {
@@ -136,8 +139,8 @@ const Home = () => {
               if (item.id % 2 !== 0) {
                 return (
                   <div className="row">
-                    <div className="col-lg-6 col-sm-12">
-                      <h3>{item.title}</h3>
+                    <div className="col-lg-6 col-sm-12 text-wrapper">
+                      <h3 className="title">{item.title}</h3>
                       <p>{item.text}</p>
                       <p>{item.text}</p>
                       <div className="btn-wrapper text-center">
@@ -146,9 +149,14 @@ const Home = () => {
                     </div>
                     <div className="col-lg-6 col-sm-12">
                       <img src={item.img} alt="" />
-                      <ul className="text-center">
+                      <ul>
                         {item.benefit.map((menu) => (
-                          <li>{menu.text}</li>
+                          <li>
+                            <span className="gaccent">
+                              <FontAwesomeIcon icon={faCheckCircle} />
+                            </span>
+                            {menu.text}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -159,14 +167,19 @@ const Home = () => {
                   <div className="row">
                     <div className="col-lg-6 col-sm-12">
                       <img src={item.img} alt="" />
-                      <ul className="text-center">
-                        {item.benefit.map((bene) => (
-                          <li>{bene.text}</li>
+                      <ul className="">
+                        {item.benefit.map((menu) => (
+                          <li>
+                            <span className="ggreen">
+                              <FontAwesomeIcon icon={faCheckCircle} />
+                            </span>
+                            {menu.text}
+                          </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="col-lg-6 col-sm-12">
-                      <h3>{item.title}</h3>
+                    <div className="col-lg-6 col-sm-12 text-wrapper">
+                      <h3 className="title">{item.title}</h3>
                       <p>{item.text}</p>
                       <div className="btn-wrapper text-center">
                         <a className="green-button">Request a free demo</a>
@@ -184,16 +197,23 @@ const Home = () => {
             <p className="ggreen">Delivery and Service Robots</p>
           </div>
           <div className="contents">
-            <div className="container row">
-              <div className="col-lg-4 col-sm-12 p-3">
-                <div className="card">contents1</div>
-              </div>
-              <div className="col-lg-4 col-sm-12 p-3">
-                <div className="card">contents1</div>
-              </div>
-              <div className="col-lg-4 col-sm-12 p-3">
-                <div className="card">contents1</div>
-              </div>
+            <div className="container row mx-auto">
+              {hardwareSlutionData
+                ? hardwareSlutionData.map((content) => (
+                    <div className="col-lg-4 col-sm-12 p-3">
+                      <div className="card">
+                        <h5 className="ggreen">{content.title}</h5>
+                        {content.imgUrl ? (
+                          <img src={content.imgUrl} alt="solution" />
+                        ) : null}
+                        <p>{content.contents}</p>
+                        <a href={content.link} className="accent-button">
+                          Learn More
+                        </a>
+                      </div>
+                    </div>
+                  ))
+                : null}
             </div>
           </div>
         </section>
