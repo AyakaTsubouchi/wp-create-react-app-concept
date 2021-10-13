@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import "../css/Header.css";
 import { navModal } from "../data";
 import {rootUrl} from "../setting"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
 
 
 export default function Index(props) {
@@ -15,12 +18,11 @@ export default function Index(props) {
   const [modalContents, setModalContents] = useState();
 
   const handleShow = (data) => {
-    const id = data.ID
+    const id = data.ID;
     setShow(true);
     setModalTitle(data.title);
-    setModalContents(navModal[id])
+    setModalContents(navModal[id]);
   };
-
 
   useEffect(() => {
     makeMenuArr();
@@ -54,7 +56,7 @@ export default function Index(props) {
         <div className="logo">
           <Link to="/">
             <img
-              src={rootUrl+"/wp-content/uploads/2021/10/logo.png"}
+              src={rootUrl + "/wp-content/uploads/2021/10/logo.png"}
               alt="logo"
             />
           </Link>
@@ -92,6 +94,9 @@ export default function Index(props) {
                                   }}
                                 >
                                   {childItem.title}
+                                  <span className="ggreen">
+                                    <FontAwesomeIcon icon={faChevronRight} />
+                                  </span>
                                 </a>
                               </li>
                               <Modal
@@ -106,22 +111,41 @@ export default function Index(props) {
                                 </Modal.Header>
                                 <Modal.Body>
                                   <div className="row">
-                                  {
-                                    modalContents? modalContents.map(content=>(
-                                      <div className="col-lg-4">
-                                      <h5 className="ggreen">
-                                        {content.title}
-                                      </h5>
-                                      {content.imgUrl? <img src={content.imgUrl} alt="solution"/>: null}
-                                      <p>
-                                       {content.contents}
-                                      </p>
-                                      <a href={content.link} className="accent-button">
-                                        Learn More
-                                      </a>
-                                    </div>
-                                    )) :null
-                                  }
+                                    {modalContents
+                                      ? modalContents.map((content) => (
+                                          <div className="col-lg-4">
+                                            <h5
+                                              className={
+                                                content.id % 2 == 0
+                                                  ? "gaccent"
+                                                  : "ggreen"
+                                              }
+                                            >
+                                              {content.title}
+                                            </h5>
+                                            {content.imgUrl ? (
+                                              <img
+                                                src={content.imgUrl}
+                                                alt="solution"
+                                              />
+                                            ) : null}
+                                            <p>{content.contents}</p>
+                                            {content.contents2 ? (
+                                              <p>{content.contents2}</p>
+                                            ) : null}
+                                            <a
+                                              href={content.link}
+                                              className={
+                                                content.id % 2 == 0
+                                                  ? "accent-button"
+                                                  : "green-button"
+                                              }
+                                            >
+                                              {content.buttonText}
+                                            </a>
+                                          </div>
+                                        ))
+                                      : null}
                                   </div>
                                 </Modal.Body>
                                 <Modal.Footer></Modal.Footer>
