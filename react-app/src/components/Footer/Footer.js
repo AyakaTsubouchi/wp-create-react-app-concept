@@ -7,12 +7,38 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import "../css/Footer.css";
 import {rootUrl} from "../setting"
+import { send } from 'emailjs-com';
 
 export default function Footer(props) {
   const footer = props.footer;
   const footer2= props.footer2;
   const [footerArr, setFooterArr] = useState();
   const [footer2Arr, setFooter2Arr] = useState();
+  const [toSend, setToSend] = useState({
+    from_email: '',
+  });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    send(
+      process.env.REACT_APP_SERVICE_ID,
+      process.env.REACT_APP_TEMPLATE_ID,
+      toSend,
+      process.env.REACT_APP_USER_ID
+    )
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      })
+      .catch((err) => {
+        console.log('FAILED...', err);
+      });
+  };
+
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
+
+
   useEffect(() => {
     makeMenuArr(footer,setFooterArr);
     makeMenuArr(footer2,setFooter2Arr);
@@ -48,7 +74,7 @@ export default function Footer(props) {
       <div className="container row">
         <div className="logo col-lg-2">
           <img
-            src={rootUrl+"/wp-content/uploads/2021/10/logo.png"}
+            src="http://localhost:8888/wp-content/uploads/2021/10/logo.png"
             alto="logo"
           />
         </div>
@@ -76,9 +102,9 @@ export default function Footer(props) {
                 Stay up to date with our latest news and product releases by
                 signing up to our newsletter.
               </p>
-              <form action="">
+              <form onSubmit={onSubmit}>
                 <div className="form-group d-flex">
-                  <input type="text" />
+                  <input type="text" onChange={handleChange} name="from_email" value={toSend.from_email} />
                   <button className="green-button" type="submit">
                     Submit
                   </button>
