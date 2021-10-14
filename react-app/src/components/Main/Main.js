@@ -29,7 +29,7 @@ class Main extends Component {
               );
             })}
           </Switch>
-          <Footer footer={data.footer}/>
+          <Footer footer={data.footer} footer2={data.footer2}/>
         </Router>
       </>
     );

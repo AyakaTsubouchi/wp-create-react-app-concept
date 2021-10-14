@@ -108,7 +108,6 @@ export default function Footer(props) {
                   <button className="green-button" type="submit">
                     Submit
                   </button>
-                  {/* <input className="green-button" type="submit" /> */}
                 </div>
               </form>
             </div>
