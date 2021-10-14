@@ -122,8 +122,15 @@
 /* hardware solution */
 
 .home .hardwareSlution .contents {
-    height: 400px;
     background-image: linear-gradient(to right, #E9F8F8, white);
+}
+.home .hardwareSlution .contents .card{
+    padding: 20px;
+}
+.home .hardwareSlution .contents .card p{
+    height: 50px;
+    overflow-y: auto;
+  
 }
 
 /* Is Goopter right for you? */
@@ -131,6 +138,19 @@
 .isGoopter .contents {
     background: #E7F8F8;
     padding: 30px;
+}
+.isGoopter .contents .contentsNav a li{
+    color: black;
+    font-weight: 400;
+}
+.isGoopter .contents .contentsNav a.active li{
+    font-weight: 600;
+    margin-left: -23px;
+}
+.isGoopter .contents .contentsNav a.active li::before{
+    content: '▶︎';
+    color: #FF3300;
+    padding-right: 10px;
 }
 
 .isGoopter .contents .contentsDesc .card {

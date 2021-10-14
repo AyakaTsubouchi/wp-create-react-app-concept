@@ -12,6 +12,7 @@ const Home = () => {
   const [id, setId] = useState(useCaseData[0].id);
   const hardwareSlutionData = navModal["6866"];
   const [indexCar, setIndexCar] = useState(0);
+  const [activeId, setActiveId]=useState(1)
   const handleSelect = (selectedIndex, e) => {
     setIndexCar(selectedIndex);
   };
@@ -25,6 +26,9 @@ const Home = () => {
     );
     useCaseData.map((item) => (item.title === useCase ? setId(item.id) : null));
   };
+  const handleClick =()=>{
+
+  }
 
   return (
     <>
@@ -98,8 +102,7 @@ const Home = () => {
                 about!
               </p>
             </div>
-
-            <Carousel activeIndex={indexCar} onSelect={handleSelect}>
+            <Carousel activeIndex={indexCar} onSelect={handleSelect} variant="dark">
               <Carousel.Item>
                 <img
                   className="d-block w-100"
@@ -109,12 +112,6 @@ const Home = () => {
                   }
                   alt="First slide"
                 />
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
-                </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
@@ -125,13 +122,6 @@ const Home = () => {
                   }
                   alt="Second slide"
                 />
-
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img
@@ -142,14 +132,6 @@ const Home = () => {
                   }
                   alt="Third slide"
                 />
-
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p>
-                </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
           </div>
@@ -252,7 +234,7 @@ const Home = () => {
                           <img src={content.imgUrl} alt="solution" />
                         ) : null}
                         <p>{content.contents}</p>
-                        <a href={content.link} className="accent-button">
+                        <a href={content.link} className={`${content.id%2===0? "accent-button":"green-button"} text-center`}>
                           Learn More
                         </a>
                       </div>
@@ -278,13 +260,14 @@ const Home = () => {
             <div className="container  row mx-auto">
               <ul className="contentsNav col-lg-3 col-sm-12">
                 {useCaseData.map((item) => (
-                  <a
+                  <a className={item.id === activeId? "active" : ""}
                     key={item.id}
                     onClick={() => {
                       setUseCase(item.title);
+                      setActiveId(item.id)
                     }}
                   >
-                    <li>{item.title}</li>
+                    <li>{item.title}{item.id}</li>
                   </a>
                 ))}
               </ul>
