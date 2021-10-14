@@ -34,12 +34,6 @@
     z-index: -1;
 }
 
-.home .hero-bg3 {
-    position: absolute;
-    bottom: -150px;
-    right: 0;
-    height: 300px;
-}
 
 /* hero section */
 
@@ -60,7 +54,12 @@
 }
 
 /* How Goopter works  */
-
+.home .howGoopter .hg-bg3 {
+    position: absolute;
+    top: -150px;
+    right: 0;
+    height: 300px;
+}
 .home .howGoopter .hg-bg4 {
     position: absolute;
     bottom: -90px;
@@ -70,9 +69,7 @@
 
 .home .howGoopter {
     position: relative;
-    z-index: -1;
     background-color: #E7F8F8;
-    /* height: 400px; */
 }
 .home .howGoopter .carousel-inner img{
     height: 400px;

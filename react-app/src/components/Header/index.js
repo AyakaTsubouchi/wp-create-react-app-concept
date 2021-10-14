@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 
-
 export default function Index(props) {
   const menu = props.menu;
   const parents = [];
@@ -114,25 +113,28 @@ export default function Index(props) {
                                     {modalContents
                                       ? modalContents.map((content) => (
                                           <div className="col-lg-4">
-                                            <h5
-                                              className={
-                                                content.id % 2 == 0
-                                                  ? "gaccent"
-                                                  : "ggreen"
-                                              }
-                                            >
-                                              {content.title}
-                                            </h5>
-                                            {content.imgUrl ? (
-                                              <img
-                                                src={content.imgUrl}
-                                                alt="solution"
-                                              />
-                                            ) : null}
-                                            <p>{content.contents}</p>
-                                            {content.contents2 ? (
-                                              <p>{content.contents2}</p>
-                                            ) : null}
+                                            <div className="text-wrapper">
+                                              <h5
+                                                className={
+                                                  content.id % 2 == 0
+                                                    ? "gaccent"
+                                                    : "ggreen"
+                                                }
+                                              >
+                                                {content.title}
+                                              </h5>
+                                              {content.imgUrl ? (
+                                                <img
+                                                  src={content.imgUrl}
+                                                  alt="solution"
+                                                />
+                                              ) : null}
+                                              <p>{content.contents}</p>
+                                              {content.contents2 ? (
+                                                <p>{content.contents2}</p>
+                                              ) : null}
+                                            </div>
+
                                             <a
                                               href={content.link}
                                               className={

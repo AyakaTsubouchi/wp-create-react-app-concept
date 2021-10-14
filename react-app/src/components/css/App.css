@@ -13,7 +13,9 @@ body {
 }
 a{
     text-decoration: none;
-
+}
+a:hover{
+    cursor: pointer;
 }
 .ggreen {
     color: #11b7b5!important;
@@ -35,9 +37,10 @@ a{
     border-radius: 8px;
     margin: 10px;
 }
-.green-button a, .accent-button a{
+a.green-button, a.accent-button{
     color: white;
 }
+
 .green-button:hover{
     background-color: #0E9795;
     color: white;

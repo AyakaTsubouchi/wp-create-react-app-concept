@@ -25,7 +25,8 @@ header .dropdown a:hover {
     cursor: pointer;
     color: black;
 }
-.dropdown-toggle::after{
+
+.dropdown-toggle::after {
     color: #11b7b5;
 }
 
@@ -76,14 +77,30 @@ header hr {
     height: 400px;
     width: 100%;
 }
-.modal-header,.modal-footer{
-    border:none!important;
+
+.modal-dialog a.green-button, .modal-dialog a.accent-button {
+    padding: 10px 20px;
 }
-.modal-body .col-lg-4{
+
+.modal-header, .modal-footer {
+    border: none!important;
+}
+
+.modal-body .col-lg-4 {
     border-right: 1px solid rgb(206, 206, 206);
 }
 
+.modal-body .text-wrapper {
+    height: 270px;
+    overflow-y: scroll;
+}
 
+::-webkit-scrollbar {
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
 
 @media (min-width: 576px) {
     .modal-dialog {
