@@ -1,10 +1,16 @@
 header {
     padding: 20px;
     background: white;
+    position: fixed;
+    top:0;
+    width: 100%;
+    z-index: 1;
+}
+header.row{
+    --bs-gutter-x: 0rem!important;
 }
 
-header .accent-button a,
-header .green-button a{
+header .accent-button a, header .green-button a {
     color: white;
 }
 
@@ -92,18 +98,19 @@ header hr {
 }
 
 .modal-body .col-lg-4 {
-    border-right: 1px solid rgb(206, 206, 206); 
+    border-right: 1px solid rgb(206, 206, 206);
 }
-
 
 .modal-body .text-wrapper {
-    /* height: 370px;
-    overflow-y: scroll; */
-
+    min-height: 200px;
+    overflow-y: scroll;
 }
+
 ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
+    width: 0;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
 }
 
 @media (min-width: 576px) {
@@ -111,5 +118,53 @@ header hr {
         max-width: none!important;
         width: 90%!important;
         margin: 1.75rem auto;
+    }
+}
+
+/* nav/ */
+
+header .mobile-toggler{
+    display: none;
+}
+
+header .desktop-nav {
+    display: block;
+}
+header .mobile-nav{
+    display: none;
+}
+header .mobile-toggler a{
+    color: gray;
+}
+
+@media (max-width: 991px) {
+    header .desktop-nav {
+        display: none!important;
+    }
+    header .mobile-toggler {
+        display: block;
+        position: absolute;
+        top: 30px;
+    } 
+    header .mobile-nav{
+        transition: all 0.5s;
+        transform: translateX(-100%);
+        display: block;
+        background:white;
+        position:absolute;
+        left:0;
+        top:0;
+        height:100vh;
+        width:100%;
+    }
+    header .mobile-nav.open{
+        transform: translateX(0%);
+        z-index: 1;
+    }
+    header .mobile-nav .header{
+        text-align: end;
+    }
+    header .mobile-nav .header a{
+        padding: 30px 20px
     }
 }

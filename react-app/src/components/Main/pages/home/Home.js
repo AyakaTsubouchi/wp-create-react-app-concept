@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "../../../css/Home.css";
-import { softwareSlution, useCaseData,navModal } from "../../../data";
+import { softwareSlution, useCaseData, navModal } from "../../../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import {rootUrl} from "../../../setting"
+import { faCheckCircle, faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+import { rootUrl } from "../../../setting";
 
 const Home = () => {
   const [useCase, setUseCase] = useState("Restaurant");
@@ -12,7 +12,7 @@ const Home = () => {
   const [id, setId] = useState(useCaseData[0].id);
   const hardwareSlutionData = navModal["6866"];
   const [indexCar, setIndexCar] = useState(0);
-  const [activeId, setActiveId]=useState(1)
+  const [activeId, setActiveId] = useState(1);
   const handleSelect = (selectedIndex, e) => {
     setIndexCar(selectedIndex);
   };
@@ -26,9 +26,6 @@ const Home = () => {
     );
     useCaseData.map((item) => (item.title === useCase ? setId(item.id) : null));
   };
-  const handleClick =()=>{
-
-  }
 
   return (
     <>
@@ -60,12 +57,17 @@ const Home = () => {
                   customers and automating sales.
                 </p>
                 <div className="links d-flex">
-                  <a href="#" className="green-button">
-                    Request a demo
-                  </a>
-                  <a href="#" className="gaccent">
-                    How it works
-                  </a>
+                  <div className="green-button">
+                    <a href="#">Request a demo</a>
+                  </div>
+                  <div className="gaaccent-wrapper">
+                    <a href="#" className="gaccent">
+                      <span className="play-icon">
+                        <FontAwesomeIcon icon={faPlayCircle} />
+                      </span>
+                      <span>How it works</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,8 +104,18 @@ const Home = () => {
                 about!
               </p>
             </div>
-            <Carousel activeIndex={indexCar} onSelect={handleSelect} variant="dark">
+            <Carousel
+              activeIndex={indexCar}
+              onSelect={handleSelect}
+              variant="dark"
+            >
               <Carousel.Item>
+                <Carousel.Caption>
+                  <h5>Second slide label</h5>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </Carousel.Caption>
                 <img
                   className="d-block w-100"
                   src={
@@ -158,7 +170,7 @@ const Home = () => {
                           <h3>{item.title}</h3>
                         </div>
                         <p>{item.text}</p>
-                        <p>{item.text}</p>
+                        <p>{item.text2}</p>
                         <div className="btn-wrapper text-center">
                           <a className="green-button">Request a free demo</a>
                         </div>
@@ -233,8 +245,18 @@ const Home = () => {
                         {content.imgUrl ? (
                           <img src={content.imgUrl} alt="solution" />
                         ) : null}
-                        <p>{content.contents}</p>
-                        <a href={content.link} className={`${content.id%2===0? "accent-button":"green-button"} text-center`}>
+                        <div className="pwrapper">
+                          <p>{content.description}</p>
+                          <p>{content.description2}</p>
+                        </div>
+                        <a
+                          href={content.link}
+                          className={`${
+                            content.id % 2 === 0
+                              ? "accent-button"
+                              : "green-button"
+                          } text-center`}
+                        >
                           Learn More
                         </a>
                       </div>
@@ -260,14 +282,15 @@ const Home = () => {
             <div className="container  row mx-auto">
               <ul className="contentsNav col-lg-3 col-sm-12">
                 {useCaseData.map((item) => (
-                  <a className={item.id === activeId? "active" : ""}
+                  <a
+                    className={item.id === activeId ? "active" : ""}
                     key={item.id}
                     onClick={() => {
                       setUseCase(item.title);
-                      setActiveId(item.id)
+                      setActiveId(item.id);
                     }}
                   >
-                    <li>{item.title}{item.id}</li>
+                    <li>{item.title}</li>
                   </a>
                 ))}
               </ul>
@@ -294,53 +317,57 @@ const Home = () => {
           </div>
           <div className="contents container row mx-auto">
             <div className="col-lg-6 col-sm-12">
-              <h3 className="ggreen">Goopter</h3>
-              <p>
-                You get access to our entire platform and all its features for
-                no extra cost
-              </p>
-              <ul>
-                <li>Direct ordering from your website</li>
-                <li>Your customers, your relationships, your data</li>
-                <li>
-                  Streamline order processing. Integration with existing
-                  computers and printers
-                </li>
-                <li>Nominal service fees</li>
-                <li>Payment sent right to your account without hold</li>
-                <li>No download required</li>
-              </ul>
-              <div className="buttons">
-                <div className="btn green-button">
-                  <a href="#" className="text-white">
-                    View detailed feature-list
+              <div className="container">
+                <h3 className="ggreen">Goopter</h3>
+                <p>
+                  You get access to our entire platform and all its features for
+                  no extra cost
+                </p>
+                <ul>
+                  <li>Direct ordering from your website</li>
+                  <li>Your customers, your relationships, your data</li>
+                  <li>
+                    Streamline order processing. Integration with existing
+                    computers and printers
+                  </li>
+                  <li>Nominal service fees</li>
+                  <li>Payment sent right to your account without hold</li>
+                  <li>No download required</li>
+                </ul>
+                <div className="buttons">
+                  <div className="btn green-button">
+                    <a href="#" className="text-white">
+                      View detailed feature-list
+                    </a>
+                  </div>
+                  <a href="#" className="ggreen">
+                    View pricing options
                   </a>
                 </div>
-                <a href="#" className="ggreen">
-                  View pricing options
-                </a>
+                <p className="weaker">
+                  All plans include: 30 day money-back guarantee • 24/7
+                  telephone support • FREE setup • Multi-language support
+                </p>
               </div>
-              <p className="weaker">
-                All plans include: 30 day money-back guarantee • 24/7 telephone
-                support • FREE setup • Multi-language support
-              </p>
             </div>
             <hr className="devider" />
             <div className="col-lg-6 col-sm-12 right-box">
-              <h3>With third-party alternatives...</h3>
-              <ul>
-                <li>No custom domains</li>
-                <li>Ordering is done through third-party channels.</li>
-                <li>Do not own customer records</li>
-                <li>Manual input of order information</li>
-                <li>Requires download and registration</li>
-                <li>Payments are held for days to weeks </li>
-              </ul>
-              <ul>
-                On top of that ...
-                <li>15-25% comission fees</li>
-                <li>Payment for add-ons</li>
-              </ul>
+              <div className="container">
+                <h3>With third-party alternatives...</h3>
+                <ul>
+                  <li>No custom domains</li>
+                  <li>Ordering is done through third-party channels.</li>
+                  <li>Do not own customer records</li>
+                  <li>Manual input of order information</li>
+                  <li>Requires download and registration</li>
+                  <li>Payments are held for days to weeks </li>
+                </ul>
+                <ul>
+                  On top of that ...
+                  <li>15-25% comission fees</li>
+                  <li>Payment for add-ons</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>

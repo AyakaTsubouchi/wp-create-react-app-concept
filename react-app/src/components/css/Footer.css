@@ -30,6 +30,9 @@
     border:none;
     width: 100%;
 }
+.footer input::placeholder{
+    padding: 10px;
+}
 .footer button.green-button{
     border:none;
     margin:0;

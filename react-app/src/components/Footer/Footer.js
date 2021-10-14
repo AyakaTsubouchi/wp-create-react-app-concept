@@ -104,7 +104,7 @@ export default function Footer(props) {
               </p>
               <form onSubmit={onSubmit}>
                 <div className="form-group d-flex">
-                  <input type="text" onChange={handleChange} name="from_email" value={toSend.from_email} />
+                  <input type="text" onChange={handleChange} name="from_email" value={toSend.from_email} placeholder="Email" />
                   <button className="green-button" type="submit">
                     Submit
                   </button>
