@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import {rootUrl} from "../../../setting"
 
-
 const Home = () => {
   const [useCase, setUseCase] = useState("Restaurant");
   const [description, setDescription] = useState(useCaseData[0].desc);
@@ -165,12 +164,22 @@ const Home = () => {
               if (item.id % 2 !== 0) {
                 return (
                   <div className="row">
-                    <div className="col-lg-6 col-sm-12 text-wrapper">
-                      <h3 className="title">{item.title}</h3>
-                      <p>{item.text}</p>
-                      <p>{item.text}</p>
-                      <div className="btn-wrapper text-center">
-                        <a className="accent-button">Request a free demo</a>
+                    <div className="col-lg-6 col-sm-12">
+                      <div className="text-wrapper">
+                        <div className="title">
+                          <img
+                            src={
+                              rootUrl +
+                              "/wp-content/uploads/2021/10/Rectangle-103.png"
+                            }
+                          />
+                          <h3>{item.title}</h3>
+                        </div>
+                        <p>{item.text}</p>
+                        <p>{item.text}</p>
+                        <div className="btn-wrapper text-center">
+                          <a className="green-button">Request a free demo</a>
+                        </div>
                       </div>
                     </div>
                     <div className="col-lg-6 col-sm-12">
@@ -178,7 +187,7 @@ const Home = () => {
                       <ul>
                         {item.benefit.map((menu) => (
                           <li>
-                            <span className="gaccent">
+                            <span className="ggreen">
                               <FontAwesomeIcon icon={faCheckCircle} />
                             </span>
                             {menu.text}
@@ -196,7 +205,7 @@ const Home = () => {
                       <ul className="">
                         {item.benefit.map((menu) => (
                           <li>
-                            <span className="ggreen">
+                            <span className="gaccent">
                               <FontAwesomeIcon icon={faCheckCircle} />
                             </span>
                             {menu.text}
@@ -204,11 +213,21 @@ const Home = () => {
                         ))}
                       </ul>
                     </div>
-                    <div className="col-lg-6 col-sm-12 text-wrapper">
-                      <h3 className="title">{item.title}</h3>
-                      <p>{item.text}</p>
-                      <div className="btn-wrapper text-center">
-                        <a className="green-button">Request a free demo</a>
+                    <div className="col-lg-6 col-sm-12">
+                      <div className="text-wrapper">
+                        <div className="title">
+                          <img
+                            src={
+                              rootUrl +
+                              "/wp-content/uploads/2021/10/Rectangle-104.png"
+                            }
+                          />
+                          <h3>{item.title}</h3>
+                        </div>
+                        <p>{item.text}</p>
+                        <div className="btn-wrapper text-center">
+                          <a className="accent-button">Request a free demo</a>
+                        </div>
                       </div>
                     </div>
                   </div>
