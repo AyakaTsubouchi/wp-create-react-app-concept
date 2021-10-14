@@ -12,7 +12,10 @@ const Home = () => {
   const [description, setDescription] = useState(useCaseData[0].desc);
   const [id, setId] = useState(useCaseData[0].id);
   const hardwareSlutionData = navModal["6866"];
-
+  const [indexCar, setIndexCar] = useState(0);
+  const handleSelect = (selectedIndex, e) => {
+    setIndexCar(selectedIndex);
+  };
   useEffect(() => {
     showUseCases();
   }, [useCase]);
@@ -30,16 +33,19 @@ const Home = () => {
       <div className="home">
         <img
           className="hero-bg1"
-          src={rootUrl+"/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.23-PM.png"}
+          src={
+            rootUrl +
+            "/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.23-PM.png"
+          }
         />
         <img
           className="hero-bg2"
-          src={rootUrl+"/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.59-PM.png"}
+          src={
+            rootUrl +
+            "/wp-content/uploads/2021/10/Screen-Shot-2021-10-07-at-5.07.59-PM.png"
+          }
         />
-        <img
-          className="hero-bg3"
-          src={rootUrl+"/wp-content/uploads/2021/10/Background-graphic-right-side.png"}
-        />
+
         <section className="hero-section">
           <div className="container row mx-auto">
             <div className="col-lg-6 col-sm-12">
@@ -62,7 +68,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6 col-sm-12">
               <img
-                src={rootUrl+"/wp-content/uploads/2021/10/Group-41.png"}
+                src={rootUrl + "/wp-content/uploads/2021/10/Group-41.png"}
                 alto="goopter"
                 style={{ width: "80%", margin: "0 auto" }}
               />
@@ -72,8 +78,18 @@ const Home = () => {
         <section className="howGoopter">
           <img
             className="hg-bg4"
-            src={rootUrl+"/wp-content/uploads/2021/10/Background-graphic-left-side.png"}
+            src={
+              rootUrl +
+              "/wp-content/uploads/2021/10/Background-graphic-left-side.png"
+            }
             alto="background"
+          />
+          <img
+            className="hg-bg3"
+            src={
+              rootUrl +
+              "/wp-content/uploads/2021/10/Background-graphic-right-side.png"
+            }
           />
           <div className="container">
             <div className="header">
@@ -84,11 +100,14 @@ const Home = () => {
               </p>
             </div>
 
-            <Carousel variant="dark">
+            <Carousel activeIndex={indexCar} onSelect={handleSelect}>
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Analytics.png"}
+                  src={
+                    rootUrl +
+                    "/wp-content/uploads/2021/10/Slider-Image-Analytics.png"
+                  }
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -101,7 +120,10 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Available-on-all-platforms.png"}
+                  src={
+                    rootUrl +
+                    "/wp-content/uploads/2021/10/Slider-Image-Available-on-all-platforms.png"
+                  }
                   alt="Second slide"
                 />
 
@@ -115,7 +137,10 @@ const Home = () => {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src={rootUrl+"/wp-content/uploads/2021/10/Slider-Image-Consumer-Mobile-Apps.png"}
+                  src={
+                    rootUrl +
+                    "/wp-content/uploads/2021/10/Slider-Image-Consumer-Mobile-Apps.png"
+                  }
                   alt="Third slide"
                 />
 
@@ -323,7 +348,9 @@ const Home = () => {
             <p>Take your business to the next level</p>
           </div>
           <div className="contents">
-            <img src={rootUrl+"/wp-content/uploads/2021/10/Final-CTA-Icon.svg"} />
+            <img
+              src={rootUrl + "/wp-content/uploads/2021/10/Final-CTA-Icon.svg"}
+            />
             <p>
               Try for free and see how Goopter can revolutionize your business.
             </p>

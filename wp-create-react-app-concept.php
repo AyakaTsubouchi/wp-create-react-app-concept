@@ -75,6 +75,7 @@ add_action('wp_enqueue_scripts','rp_load_react_app');
  * @return bool|void
  */
 function rp_load_react_app($hook){
+	wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css');
 	// Only load react app scripts in site front end home page.
 	// if( !is_front_page())
 	// 	return;
